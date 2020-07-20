@@ -26,3 +26,6 @@ includes:
     - ./templates/templates_keys.yml
     - ./templates/templates_paths.yml
     - ./templates/templates_strings.yml
+
+# Customization workflow
+    - ../customization/templates.yml

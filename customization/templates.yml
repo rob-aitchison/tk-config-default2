@@ -10,3 +10,27 @@
 
 # Customization workflow introduced by Autodesk ACD Shotgun team
 #
+
+description: This file is used to customize templates (paths, keys, strings)
+
+#===============================================================================
+#
+#                                   Key section
+#
+#===============================================================================
+keys:
+
+  #
+  # Shotgun entities
+  #
+
+  Step:
+    type: str
+    shotgun_entity_type: Step
+    shotgun_field_name: short_name
+
+  Part:
+    type: str
+    shotgun_entity_type: CustomEntity01
+    shotgun_field_name: code
+    alias: CustomEntity01

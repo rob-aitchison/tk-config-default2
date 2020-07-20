@@ -19,6 +19,8 @@ includes:
 - ./tk-shotgun-folders.yml
 - ./tk-shotgun-launchfolder.yml
 - ./tk-shotgun-launchpublish.yml
+# Customization workflow
+- ../../../customization/env.yml
 
 ################################################################################
 

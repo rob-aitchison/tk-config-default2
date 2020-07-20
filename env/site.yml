@@ -17,6 +17,8 @@ includes:
 - ./includes/frameworks.yml
 - ./includes/settings/tk-desktop.yml
 - ./includes/settings/tk-desktop2.yml
+# Customization workflow
+- ../customization/env.yml
 
 ################################################################################
 # configuration for all engines to load in a project context

@@ -35,6 +35,8 @@ includes:
 - ./includes/settings/tk-vred.yml
 - ./includes/settings/tk-shell.yml
 - ./includes/settings/tk-shotgun.yml
+# Customization workflow
+- ../customization/env.yml
 
 ################################################################################
 # configuration for all engines to load in an asset context

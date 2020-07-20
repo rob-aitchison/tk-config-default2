@@ -19,6 +19,8 @@ description: Apps and engines loaded when a PublishedFile is loaded.
 includes:
 - ./includes/frameworks.yml
 - ./includes/settings/tk-shotgun.yml
+# Customization workflow
+- ../customization/env.yml
 
 ################################################################################
 # configuration for all engines to load in a publishedfile context
