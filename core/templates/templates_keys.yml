@@ -1,0 +1,155 @@
+# Copyright (c) 2020 Autodesk, Inc.
+#
+# CONFIDENTIAL AND PROPRIETARY
+#
+# This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit
+# Source Code License included in this distribution package. See LICENSE.
+# By accessing, using, copying or modifying this work you indicate your
+# agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
+# not expressly granted therein are reserved by Autodesk, Inc.
+
+# Customization workflow introduced by Autodesk ACD Shotgun team
+#
+
+#
+# The keys section contains the definitions for all the different keys that are being
+# used by Sgtk. A key is a magic token that is replaced by a value at runtime, for example
+# {Shot}. The section below tells Sgtk which data types and formats to expect for each key.
+#
+keys:
+    Sequence:
+        type: str
+    Shot:
+        type: str
+    Step:
+        type: str
+    sg_asset_type:
+        type: str
+    Asset:
+        type: str
+    name:
+        type: str
+        filter_by: alphanumeric
+    iteration:
+        type: int
+    version:
+        type: int
+        format_spec: "03"
+    version_four:
+       type: int
+       format_spec: "04"
+       alias: version
+    timestamp:
+        type: str
+    width:
+        type: int
+    height:
+        type: int
+    segment_name:
+        type: str
+
+    # Represents the optional output name for frames written by the Shotgun Write Node
+    nuke.output:
+        alias: output
+        type: str
+        filter_by: alphanumeric
+
+    # Represents the optional output name for frames written by the After Effects Publish Rendering Plugin
+    afx.comp:
+        alias: comp
+        type: str
+        filter_by: alphanumeric
+    afx.mov.ext:
+        alias: extension
+        type: str
+        choices:
+            mov: Quicktime Movie (.mov)
+            avi: Audio Video Interleaved (.avi)
+
+    SEQ:
+        type: sequence
+        format_spec: "04"
+
+    # Represents a frame sequence exported from Flame
+    flame.frame:
+        type: sequence
+        format_spec: "08"
+
+    eye:
+        type: str
+
+    houdini.node:
+        alias: node
+        type: str
+    aov_name:
+        type: str
+
+    # these are used by the Hiero exporter and pipeline
+    YYYY:
+        type: int
+        format_spec: "04"
+    MM:
+        type: int
+        format_spec: "02"
+    DD:
+        type: int
+        format_spec: "02"
+        alias: DD
+    project:
+        type: str
+
+    # These are used for the Mari UDIM pipeline:
+    UDIM:
+        type: sequence
+        default: "<UDIM>"
+    mari.channel:
+        type: str
+        alias: channel
+    mari.layer:
+        type: str
+        alias: layer
+    mari.project_name:
+        type: str
+        alias: name
+    asset_name:
+        type: str
+        shotgun_entity_type: Asset
+        shotgun_field_name: code
+    task_name:
+        type: str
+        shotgun_entity_type: Task
+        shotgun_field_name: content
+
+    # Maya supports two extension types.
+    maya_extension:
+        type: str
+        choices:
+            ma: Maya Ascii (.ma)
+            mb: Maya Binary (.mb)
+        default: ma
+        alias: extension
+
+    # needed by the Alias import as reference functionality
+    alias.extension:
+        type: str
+        filter_by: alphanumeric
+
+    # represents the optional render pass for frames written by VRED
+    vred.render_pass:
+        type: str
+        filter_by: alphanumeric
+
+    # represents the image extension for frames written by VRED
+    vred.render_extension:
+        type: str
+        choices:
+            png: PNG Image
+            exr: EXR Image
+        default: png
+
+    # Represents a frame sequence exported from VRED
+    vred.frame:
+        type: sequence
+        format_spec: "05"
+        alias: SEQ
+

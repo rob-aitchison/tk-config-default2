@@ -1,0 +1,35 @@
+# Copyright (c) 2020 Autodesk, Inc.
+#
+# CONFIDENTIAL AND PROPRIETARY
+#
+# This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit
+# Source Code License included in this distribution package. See LICENSE.
+# By accessing, using, copying or modifying this work you indicate your
+# agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
+# not expressly granted therein are reserved by Autodesk, Inc.
+
+# Customization workflow introduced by Autodesk ACD Shotgun team
+#
+
+#
+# The strings section is similar to the paths section - but rather than defining paths
+# on disk, it contains a list of strings. Strings are typically used when you want to be
+# able to configure the way data is written to shotgun - it may be the name field for a
+# review version or the formatting of a publish.
+#
+
+strings:
+
+    # when a review Version in Shotgun is created inside of Nuke, this is the
+    # name that is being given to it (the code field)
+    nuke_shot_version_name: "{Shot}_{name}_{nuke.output}_v{version}.{iteration}"
+    nuke_quick_shot_version_name: "{Shot}_{name}_quick_{iteration}"
+
+    nuke_asset_version_name: "{Asset}_{name}_{nuke.output}_v{version}.{iteration}"
+    nuke_quick_asset_version_name: "{Asset}_{name}_quick_{iteration}"
+
+    # defines how the {tk_version} token in Hiero gets formatted back to tk.
+    hiero_version: "{version}"
+
+    # define how new Mari projects should be named
+    mari_asset_project_name: "{mari.project_name} - Asset {asset_name}, {task_name}"
