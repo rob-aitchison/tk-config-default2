@@ -34,3 +34,44 @@ keys:
     shotgun_entity_type: CustomEntity01
     shotgun_field_name: code
     alias: CustomEntity01
+
+paths:
+
+    # CustomEntity01 is enabled as Part  
+    part_root: parts/{Part}/{Step}
+    
+    #
+    # Alias
+    #
+
+    # define the location of a work area
+    part_work_area_alias:
+        definition: '@part_root/work/alias'
+    # define the location of a publish area
+    part_publish_area_alias:
+        definition: '@part_root/publish/alias'
+    # The location of WIP files
+    alias_part_work:
+        definition: '@part_root/work/alias/{name}.v{version}.wire'
+    # The location of backups of WIP files
+    alias_part_snapshot:
+        definition: '@part_root/work/alias/snapshots/{name}.v{version}.{timestamp}.wire'
+    # The location of published Alias files
+    alias_part_publish:
+        definition: '@part_root/publish/alias/{name}.v{version}.wire'
+
+    # Alias translations
+
+    # The location of the reference created on the fly by Alias when importing a file as ref
+    alias_part_reference_publish:
+        definition: '@part_root/publish/alias/translations/{name}_{alias.extension}.v{version}.wref'
+    alias_part_igs_publish:
+        definition: '@part_root/publish/alias/translations/{name}.v{version}.igs'
+    alias_part_catpart_publish:
+        definition: '@part_root/publish/alias/translations/{name}.v{version}.CATPart'
+    alias_part_jt_publish:
+        definition: '@part_root/publish/alias/translations/{name}.v{version}.jt'
+    alias_part_stp_publish:
+        definition: '@part_root/publish/alias/translations/{name}.v{version}.stp'
+    alias_part_wref_publish:
+        definition: '@part_root/publish/alias/translations/{name}.v{version}.wref'
