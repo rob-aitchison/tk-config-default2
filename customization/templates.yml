@@ -75,3 +75,21 @@ paths:
         definition: '@part_root/publish/alias/translations/{name}.v{version}.stp'
     alias_part_wref_publish:
         definition: '@part_root/publish/alias/translations/{name}.v{version}.wref'
+
+    #
+    # Standalone Publisher
+    #
+
+    #-----------------------------------------------------------------------------
+    # Part environment
+    #-----------------------------------------------------------------------------
+
+    #
+    # Default published files
+    #
+    # Assets
+    asset_publish_default_template:
+      definition: '@asset_root/alias/publish/{Asset}_{name}.v{version}.{alias.extension}'
+    # Parts
+    part_publish_default_template:
+      definition: '@part_root/alias/publish/{Part}_{name}.v{version}.{alias.extension}'

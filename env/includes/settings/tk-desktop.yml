@@ -19,6 +19,7 @@ includes:
 - ./tk-multi-screeningroom.yml
 # Customization workflow
 - ../../../customization/env.yml
+- ../../../customization/tk-multi-publish2.yml
 
 ################################################################################
 

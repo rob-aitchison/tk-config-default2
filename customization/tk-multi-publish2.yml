@@ -1,0 +1,38 @@
+# Copyright (c) 2020 Autodesk, Inc.
+#
+# CONFIDENTIAL AND PROPRIETARY
+#
+# This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit
+# Source Code License included in this distribution package. See LICENSE.
+# By accessing, using, copying or modifying this work you indicate your
+# agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
+# not expressly granted therein are reserved by Autodesk, Inc.
+
+# Customization workflow introduced by Autodesk ACD Shotgun team
+#
+
+includes:
+
+  - ../env/includes/app_locations.yml
+
+#
+# Standalone Publisher
+#
+settings.tk-multi-publish2.standalone:
+  collector: "{self}/collector.py"
+  publish_plugins:
+  - name: Publish to Shotgun
+    hook: "{self}/publish_file.py:{config}/customization/tk-multi-publish2/publish_file.py:{config}/customization/tk-multi-publish2/publish_file_standalone.py"
+    settings:
+      Default Publish Templates:
+        Asset: asset_publish_default_template
+        CustomEntity01: part_publish_default_template
+      Publish Templates:
+        Alias:
+          Asset: alias_asset_publish
+          CustomEntity01: alias_part_publish
+  - name: Upload for review
+    hook: "{self}/upload_version.py"
+    settings: {}
+  help_url: "https://support.shotgunsoftware.com/hc/en-us/articles/115000068574-Integrations-User-Guide#The%20Publisher"
+  location: "@apps.tk-multi-publish2.location"
