@@ -540,7 +540,7 @@ settings.tk-multi-workfiles2.motionbuilder.shot_step:
 
 # ---- alias
 
-# project
+## project
 settings.tk-multi-workfiles2.alias:
   entities:
   - caption: Assets

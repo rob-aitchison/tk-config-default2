@@ -22,6 +22,7 @@ includes:
 - ./tk-multi-workfiles2.yml
 # Customization workflow
 - ../../../customization/env.yml
+- ../../../customization/tk-multi-workfiles2.yml
 
 ################################################################################
 

@@ -17,6 +17,35 @@ includes:
 
 # Alias tk-multi-workfiles2
 
+# project
+settings.tk-multi-workfiles2.alias:
+  entities:
+  - caption: Assets
+    entity_type: Asset
+    hierarchy: [sg_asset_type, code]
+    filters:
+    sub_hierarchy:
+      entity_type: Task
+      filters:
+      link_field: entity
+      hierarchy: [step]
+  - caption: Parts
+    entity_type: CustomEntity01
+    hierarchy: [code]
+    filters:
+    sub_hierarchy:
+      entity_type: Task
+      filters:
+      link_field: entity
+      hierarchy: [step]
+  my_tasks_filters:
+    - filter_operator: any
+      filters:
+        - [task_assignees.Group.users, is, '{context.user}']
+        - [task_assignees, is, '{context.user}']
+  hook_scene_operation: "{engine}/tk-multi-workfiles2/basic/scene_operation.py"
+  location: "@apps.tk-multi-workfiles2.location"
+
 # part_step
 settings.tk-multi-workfiles2.alias.part_step:
   template_publish: part_asset_publish
