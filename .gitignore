@@ -17,7 +17,7 @@ tk-metadata
 dist
 build
 eggs
-parts
+#parts - needed for schema
 bin
 var
 sdist
