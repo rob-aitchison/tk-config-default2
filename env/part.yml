@@ -1,0 +1,55 @@
+# Copyright (c) 2020 Autodesk, Inc.
+#
+# CONFIDENTIAL AND PROPRIETARY
+#
+# This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit
+# Source Code License included in this distribution package. See LICENSE.
+# By accessing, using, copying or modifying this work you indicate your
+# agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
+# not expressly granted therein are reserved by Autodesk, Inc.
+#
+
+description: CustomEntity01 defined as Part settings
+
+################################################################################
+
+includes:
+#- ./includes/frameworks.yml
+#- ./includes/settings/tk-3dsmaxplus.yml
+#- ./includes/settings/tk-3dsmax.yml
+#- ./includes/settings/tk-houdini.yml
+#- ./includes/settings/tk-mari.yml
+#- ./includes/settings/tk-maya.yml
+#- ./includes/settings/tk-motionbuilder.yml
+#- ./includes/settings/tk-nuke.yml
+#- ./includes/settings/tk-photoshopcc.yml
+#- ./includes/settings/tk-aftereffects.yml
+- ./includes/settings/tk-alias.yml
+#- ./includes/settings/tk-vred.yml
+#- ./includes/settings/tk-shell.yml
+#- ./includes/settings/tk-shotgun.yml
+# Customization workflow
+- ../customization/env.yml
+
+################################################################################
+# configuration for all engines to load in an part context
+
+engines:
+#  tk-3dsmaxplus: "@settings.tk-3dsmaxplus.part"
+#  tk-3dsmax: "@settings.tk-3dsmax.part"
+#  tk-houdini: "@settings.tk-houdini.part"
+#  tk-mari: "@settings.tk-mari.part"
+#  tk-maya: "@settings.tk-maya.part"
+#  tk-motionbuilder: "@settings.tk-motionbuilder.part"
+#  tk-nuke: "@settings.tk-nuke.part"
+#  tk-photoshopcc: "@settings.tk-photoshopcc.part"
+#  tk-aftereffects: "@settings.tk-aftereffects.part"
+  tk-alias: "@settings.tk-alias.part"
+#  tk-vred: "@settings.tk-vred.part"
+#  tk-shell: "@settings.tk-shell.part"
+#  tk-shotgun: "@settings.tk-shotgun.part"
+
+################################################################################
+# reference all of the common frameworks
+
+frameworks: "@frameworks"
