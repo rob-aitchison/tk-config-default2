@@ -288,6 +288,7 @@ class StandalonePublishPlugin(HookBaseClass):
                 publish_folder = os.path.dirname(publish_file)
                 ensure_folder_exists(publish_folder)
                 shutil.copyfile(work_file, publish_file)
+                self.logger.info("Copied file from %s to %s" % (work_file, publish_file))
             except Exception:
                 raise Exception(
                     "Failed to copy work file from '%s' to '%s'.\n%s" %

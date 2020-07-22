@@ -34,5 +34,6 @@ settings.tk-multi-publish2.standalone:
   - name: Upload for review
     hook: "{self}/upload_version.py"
     settings: {}
+  task_required: true
   help_url: "https://support.shotgunsoftware.com/hc/en-us/articles/115000068574-Integrations-User-Guide#The%20Publisher"
   location: "@apps.tk-multi-publish2.location"

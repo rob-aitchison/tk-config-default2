@@ -151,6 +151,87 @@ class BasicFilePublishPlugin(HookBaseClass):
             },
         }
 
+    def validate(self, settings, item):
+        """
+        Validates the given item to check that it is ok to publish.
+
+        Returns a boolean to indicate validity.
+
+        :param settings: Dictionary of Settings. The keys are strings, matching
+            the keys returned in the settings property. The values are `Setting`
+            instances.
+        :param item: Item to process
+
+        :returns: True if item is valid, False otherwise.
+        """
+
+        publisher = self.parent
+        path = item.properties.get("path")
+
+        # ---- determine the information required to validate
+
+        # We allow the information to be pre-populated by the collector or a
+        # base class plugin. They may have more information than is available
+        # here such as custom type or template settings.
+
+        publish_path = self.get_publish_path(settings, item)
+        publish_name = self.get_publish_name(settings, item)
+
+        # ---- check for conflicting publishes of this path with a status
+
+        # Note the name, context, and path *must* match the values supplied to
+        # register_publish in the publish phase in order for this to return an
+        # accurate list of previous publishes of this file.
+        publishes = publisher.util.get_conflicting_publishes(
+            item.context,
+            publish_path,
+            publish_name,
+            filters=["sg_status_list", "is_not", None],
+        )
+
+        if publishes:
+
+            self.logger.debug(
+                "Conflicting publishes: %s" % (pprint.pformat(publishes),)
+            )
+
+            publish_template = self.get_publish_template(settings, item)
+
+            if "work_template" in item.properties or publish_template:
+
+                # templates are in play and there is already a publish in SG
+                # for this file path. We will raise here to prevent this from
+                # happening.
+                error_msg = (
+                    "Can not validate file path. There is already a publish in "
+                    "Shotgun that matches this path. Please uncheck this "
+                    "plugin or save the file to a different path."
+                )
+                self.logger.error(error_msg)
+                raise Exception(error_msg)
+
+            else:
+                conflict_info = (
+                        "If you continue, these conflicting publishes will no "
+                        "longer be available to other users via the loader:<br>"
+                        "<pre>%s</pre>" % (pprint.pformat(publishes),)
+                )
+                self.logger.warn(
+                    "Found %s conflicting publishes in Shotgun" % (len(publishes),),
+                    extra={
+                        "action_show_more_info": {
+                            "label": "Show Conflicts",
+                            "tooltip": "Show conflicting publishes in Shotgun",
+                            "text": conflict_info,
+                        }
+                    },
+                )
+
+        self.logger.info("A Publish will be created in Shotgun from: ")
+        self.logger.info("  %s" % (path,))
+
+        return True
+
     def get_publish_fields(self, settings, item):
         """
         Get additional fields that should be used for the publish. This
