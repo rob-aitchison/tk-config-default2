@@ -35,6 +35,11 @@ keys:
     shotgun_field_name: code
     alias: CustomEntity01
 
+  # Generic file_extension variable
+  file_extension:
+    type: str
+    alias: extension
+
 paths:
 
     # CustomEntity01 is enabled as Part  
@@ -89,7 +94,7 @@ paths:
     #
     # Assets
     asset_publish_default_template:
-      definition: '@asset_root/alias/publish/{Asset}_{name}.v{version}.{alias.extension}'
+      definition: '@asset_root/{Asset}_{name}.v{version}.{file_extension}'
     # Parts
     part_publish_default_template:
-      definition: '@part_root/alias/publish/{Part}_{name}.v{version}.{alias.extension}'
+      definition: '@part_root/{Part}_{name}.v{version}.{file_extension}'

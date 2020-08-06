@@ -19,18 +19,18 @@ includes:
 # Standalone Publisher
 #
 settings.tk-multi-publish2.standalone:
-  collector: "{self}/collector.py"
+  collector: "{self}/collector.py:{config}/customization/tk-multi-publish2/collector.py"
   publish_plugins:
   - name: Publish to Shotgun
     hook: "{self}/publish_file.py:{config}/customization/tk-multi-publish2/publish_file.py:{config}/customization/tk-multi-publish2/publish_file_standalone.py"
     settings:
       Default Publish Templates:
-        Asset: asset_publish_default_template
-        CustomEntity01: part_publish_default_template
+        asset: asset_publish_default_template
+        part: part_publish_default_template
       Publish Templates:
         Alias:
-          Asset: alias_asset_publish
-          CustomEntity01: alias_part_publish
+          asset: alias_asset_publish
+          part: alias_part_publish
   - name: Upload for review
     hook: "{self}/upload_version.py"
     settings: {}
